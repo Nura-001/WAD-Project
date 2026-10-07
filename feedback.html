@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Feedback | CampusCare</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        .feedback-page {
+            min-height: 100vh;
+            background: #f5f7fb;
+        }
+
+        .feedback-container {
+            max-width: 750px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        .feedback-heading {
+            margin-bottom: 25px;
+        }
+
+        .feedback-heading h1 {
+            font-size: 30px;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .feedback-heading p {
+            color: #6b7280;
+        }
+
+        .feedback-card {
+            background: white;
+            border-radius: 18px;
+            border: 1px solid #e5e7eb;
+            padding: 35px;
+        }
+
+        .feedback-form-group {
+            margin-bottom: 22px;
+        }
+
+        .feedback-form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #374151;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .feedback-form-group select,
+        .feedback-form-group textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            outline: none;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .feedback-form-group select {
+            height: 48px;
+        }
+
+        .feedback-form-group textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .feedback-form-group select:focus,
+        .feedback-form-group textarea:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Rating */
+
+        .rating-box {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            gap: 5px;
+        }
+
+        .rating-box input {
+            display: none;
+        }
+
+        .rating-box label {
+            font-size: 35px;
+            color: #d1d5db;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .rating-box label:hover,
+        .rating-box label:hover ~ label,
+        .rating-box input:checked ~ label {
+            color: #f59e0b;
+        }
+
+        .feedback-submit {
+            width: 100%;
+            height: 50px;
+            border: none;
+            border-radius: 10px;
+            background: #2563eb;
+            color: white;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .feedback-submit:hover {
+            background: #1d4ed8;
+        }
+
+        .feedback-message {
+            display: none;
+            padding: 13px;
+            margin-bottom: 18px;
+            border-radius: 9px;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #15803d;
+            font-size: 13px;
+        }
+
+        .feedback-note {
+            margin-top: 20px;
+            padding: 15px;
+            background: #eff6ff;
+            border-radius: 10px;
+            color: #2563eb;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+
+            .feedback-container {
+                padding: 30px 15px;
+            }
+
+            .feedback-card {
+                padding: 25px 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="feedback-page">
+
+
+        <!-- Navbar -->
+
+        <header class="navbar">
+
+            <div class="container nav-container">
+
+                <a href="dashboard.html" class="logo">
+
+                    <span class="logo-icon">
+                        C
+                    </span>
+
+                    <span>
+                        CampusCare
+                    </span>
+
+                </a>
+
+
+                <nav class="nav-menu">
+
+                    <a href="dashboard.html">
+                        Dashboard
+                    </a>
+
+                    <a href="complaint.html">
+                        Submit Complaint
+                    </a>
+
+                    <a href="complaints.html">
+                        My Complaints
+                    </a>
+
+                    <a href="feedback.html">
+                        Feedback
+                    </a>
+
+                    <a href="#" id="logoutBtn">
+                        Logout
+                    </a>
+
+                </nav>
+
+            </div>
+
+        </header>
+
+
+        <!-- Feedback -->
+
+        <main class="feedback-container">
+
+
+            <div class="feedback-heading">
+
+                <h1>
+                    Give Feedback
+                </h1>
+
+                <p>
+                    Tell us about your experience with the service.
+                </p>
+
+            </div>
+
+
+            <div class="feedback-card">
+
+
+                <form id="feedbackForm">
+
+
+                    <!-- Complaint -->
+
+                    <div class="feedback-form-group">
+
+                        <label for="feedbackComplaint">
+                            Select Complaint
+                        </label>
+
+                        <select
+                            id="feedbackComplaint"
+                            required
+                        >
+
+                            <option value="">
+                                Select a resolved complaint
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Rating -->
+
+                    <div class="feedback-form-group">
+
+                        <label>
+                            How satisfied are you?
+                        </label>
+
+
+                        <div class="rating-box">
+
+                            <input
+                                type="radio"
+                                name="rating"
+                                id="star5"
+                                value="5"
+                                required
+                            >
+
+                            <label for="star5">
+                                ★
+                            </label>
+
+
+                            <input
+                                type="radio"
+                                name="rating"
+                                id="star4"
+                                value="4"
+                            >
+
+                            <label for="star4">
+                                ★
+                            </label>
+
+
+                            <input
+                                type="radio"
+                                name="rating"
+                                id="star3"
+                                value="3"
+                            >
+
+                            <label for="star3">
+                                ★
+                            </label>
+
+
+                            <input
+                                type="radio"
+                                name="rating"
+                                id="star2"
+                                value="2"
+                            >
+
+                            <label for="star2">
+                                ★
+                            </label>
+
+
+                            <input
+                                type="radio"
+                                name="rating"
+                                id="star1"
+                                value="1"
+                            >
+
+                            <label for="star1">
+                                ★
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Comment -->
+
+                    <div class="feedback-form-group">
+
+                        <label for="feedbackComment">
+                            Your Feedback
+                        </label>
+
+                        <textarea
+                            id="feedbackComment"
+                            placeholder="Write your feedback here..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <div
+                        id="feedbackMessage"
+                        class="feedback-message"
+                    ></div>
+
+
+                    <button
+                        type="submit"
+                        class="feedback-submit"
+                    >
+                        Submit Feedback
+                    </button>
+
+
+                    <div class="feedback-note">
+
+                        💡 Your feedback helps the university
+                        improve campus services for everyone.
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/auth.js"></script>
+
+</body>
+
+</html>

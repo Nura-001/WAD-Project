@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Register for CampusCare University Service Management System">
+
+    <title>Register | CampusCare</title>
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Authentication CSS -->
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                <span class="logo-icon">C</span>
+                <span>CampusCare</span>
+            </a>
+
+            <nav class="nav-menu">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#services">
+                    Services
+                </a>
+
+                <a href="index.html#how-it-works">
+                    How It Works
+                </a>
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         REGISTER SECTION
+    ========================== -->
+
+    <main class="auth-page">
+
+        <div class="auth-container">
+
+            <!-- =========================
+                 LEFT SIDE
+            ========================== -->
+
+            <div class="auth-info">
+
+                <div class="auth-brand">
+                    <span class="auth-icon">C</span>
+                </div>
+
+                <h1>
+                    Join CampusCare
+                </h1>
+
+                <p>
+                    Create your student account and make your
+                    campus better by reporting and tracking
+                    university service issues.
+                </p>
+
+
+                <!-- Features -->
+
+                <div class="auth-features">
+
+                    <div class="auth-feature">
+
+                        <span class="feature-icon">
+                            ✓
+                        </span>
+
+                        <div>
+                            <h3>
+                                Easy Complaint Submission
+                            </h3>
+
+                            <p>
+                                Report campus problems quickly
+                                and easily.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="auth-feature">
+
+                        <span class="feature-icon">
+                            ✓
+                        </span>
+
+                        <div>
+                            <h3>
+                                Track Your Complaints
+                            </h3>
+
+                            <p>
+                                Check the progress of your
+                                submitted complaints.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="auth-feature">
+
+                        <span class="feature-icon">
+                            ✓
+                        </span>
+
+                        <div>
+                            <h3>
+                                Give Feedback
+                            </h3>
+
+                            <p>
+                                Share your experience after
+                                an issue is resolved.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 RIGHT SIDE - REGISTER FORM
+            ========================== -->
+
+            <div class="auth-card">
+
+                <div class="auth-header">
+
+                    <h2>
+                        Create Account
+                    </h2>
+
+                    <p>
+                        Register as a student
+                    </p>
+
+                </div>
+
+
+                <!-- Register Form -->
+
+                <form id="registerForm">
+
+
+                    <!-- Full Name -->
+
+                    <div class="form-group">
+
+                        <label for="fullName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Student ID -->
+
+                    <div class="form-group">
+
+                        <label for="studentId">
+                            Student ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="studentId"
+                            name="studentId"
+                            placeholder="Enter your student ID"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Department -->
+
+                    <div class="form-group">
+
+                        <label for="department">
+                            Department
+                        </label>
+
+                        <select
+                            id="department"
+                            name="department"
+                            required
+                        >
+
+                            <option value="">
+                                Select your department
+                            </option>
+
+                            <option value="CSE">
+                                CSE
+                            </option>
+
+                            <option value="ICT">
+                                ICT
+                            </option>
+
+                            <option value="Textile">
+                                Textile
+                            </option>
+
+                            <option value="Mechanical">
+                                Mechanical
+                            </option>
+
+                            <option value="Pharmacy">
+                                Pharmacy
+                            </option>
+
+                            <option value="BGE">
+                                BGE
+                            </option>
+
+                            <option value="BMB">
+                                BMB
+                            </option>
+
+                            <option value="ESRM">
+                                ESRM
+                            </option>
+
+                            <option value="FTNS">
+                                FTNS
+                            </option>
+
+                            <option value="BBA">
+                                BBA
+                            </option>
+
+                            <option value="Economics">
+                                Economics
+                            </option>
+
+                            <option value="Physics">
+                                Physics
+                            </option>
+
+                            <option value="Chemistry">
+                                Chemistry
+                            </option>
+
+                            <option value="STAT">
+                                STAT
+                            </option>
+
+                            <option value="Math">
+                                Math
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Email -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Password -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <div class="password-wrapper">
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Create a password"
+                                minlength="6"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="togglePassword"
+                            >
+                                Show
+                            </button>
+
+                        </div>
+
+                        <small>
+                            Password must contain at least 6 characters.
+                        </small>
+
+                    </div>
+
+
+                    <!-- Confirm Password -->
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+                        <div class="password-wrapper">
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="Confirm your password"
+                                minlength="6"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="toggleConfirmPassword"
+                            >
+                                Show
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Terms and Conditions -->
+
+                    <div class="terms-group">
+
+                        <label class="checkbox-label">
+
+                            <input
+                                type="checkbox"
+                                id="terms"
+                                required
+                            >
+
+                            <span>
+                                I agree to the CampusCare
+                                terms and conditions.
+                            </span>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- Error Message -->
+
+                    <div
+                        id="registerError"
+                        class="form-message error-message"
+                    ></div>
+
+
+                    <!-- Success Message -->
+
+                    <div
+                        id="registerSuccess"
+                        class="form-message success-message"
+                    ></div>
+
+
+                    <!-- Submit Button -->
+
+                    <button
+                        type="submit"
+                        class="auth-submit"
+                    >
+                        Create Account
+                    </button>
+
+                </form>
+
+
+                <!-- Login Link -->
+
+                <div class="auth-footer">
+
+                    <p>
+                        Already have an account?
+
+                        <a href="login.html">
+                            Login here
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="auth-bottom">
+
+        <p>
+            © 2026 CampusCare. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="js/auth.js"></script>
+
+</body>
+
+</html>

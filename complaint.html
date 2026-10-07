@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Submit Complaint | CampusCare</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        .complaint-page {
+            min-height: 100vh;
+            background: #f5f7fb;
+        }
+
+        .complaint-container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .complaint-heading {
+            margin-bottom: 25px;
+        }
+
+        .complaint-heading h1 {
+            font-size: 30px;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .complaint-heading p {
+            color: #6b7280;
+        }
+
+        .complaint-form-card {
+            background: white;
+            border-radius: 18px;
+            padding: 35px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .complaint-form-group {
+            margin-bottom: 22px;
+        }
+
+        .complaint-form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #374151;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .complaint-form-group input,
+        .complaint-form-group select,
+        .complaint-form-group textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            outline: none;
+            font-family: inherit;
+            font-size: 14px;
+            transition: 0.25s;
+        }
+
+        .complaint-form-group input,
+        .complaint-form-group select {
+            height: 48px;
+        }
+
+        .complaint-form-group textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .complaint-form-group input:focus,
+        .complaint-form-group select:focus,
+        .complaint-form-group textarea:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .priority-box {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .priority-option {
+            position: relative;
+        }
+
+        .priority-option input {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .priority-option label {
+            display: block;
+            padding: 13px;
+            text-align: center;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            cursor: pointer;
+            color: #4b5563;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .priority-option input:checked + label {
+            border-color: #2563eb;
+            background: #eff6ff;
+            color: #2563eb;
+        }
+
+        .complaint-submit {
+            width: 100%;
+            height: 50px;
+            border: none;
+            border-radius: 10px;
+            background: #2563eb;
+            color: white;
+            font-family: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .complaint-submit:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .complaint-message {
+            display: none;
+            padding: 13px;
+            margin-bottom: 18px;
+            border-radius: 9px;
+            font-size: 13px;
+        }
+
+        .complaint-success {
+            background: #f0fdf4;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+        }
+
+        @media (max-width: 600px) {
+
+            .complaint-container {
+                padding: 30px 15px;
+            }
+
+            .complaint-form-card {
+                padding: 25px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .priority-box {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="complaint-page">
+
+
+        <!-- Navbar -->
+
+        <header class="navbar">
+
+            <div class="container nav-container">
+
+                <a href="dashboard.html" class="logo">
+
+                    <span class="logo-icon">
+                        C
+                    </span>
+
+                    <span>
+                        CampusCare
+                    </span>
+
+                </a>
+
+
+                <nav class="nav-menu">
+
+                    <a href="dashboard.html">
+                        Dashboard
+                    </a>
+
+                    <a href="complaint.html">
+                        Submit Complaint
+                    </a>
+
+                    <a href="complaints.html">
+                        My Complaints
+                    </a>
+
+                    <a href="feedback.html">
+                        Feedback
+                    </a>
+
+                    <a href="#" id="logoutBtn">
+                        Logout
+                    </a>
+
+                </nav>
+
+            </div>
+
+        </header>
+
+
+        <!-- Complaint Form -->
+
+        <main class="complaint-container">
+
+
+            <div class="complaint-heading">
+
+                <h1>
+                    Submit a Complaint
+                </h1>
+
+                <p>
+                    Tell us about a problem or service issue on campus.
+                </p>
+
+            </div>
+
+
+            <div class="complaint-form-card">
+
+
+                <form id="complaintForm">
+
+
+                    <!-- Category + Location -->
+
+                    <div class="form-row">
+
+                        <div class="complaint-form-group">
+
+                            <label for="complaintCategory">
+                                Service Category
+                            </label>
+
+                            <select
+                                id="complaintCategory"
+                                required
+                            >
+
+                                <option value="">
+                                    Select a category
+                                </option>
+
+                                <option value="Wi-Fi & Internet">
+                                    Wi-Fi & Internet
+                                </option>
+
+                                <option value="Electricity">
+                                    Electricity
+                                </option>
+
+                                <option value="Laboratory">
+                                    Laboratory
+                                </option>
+
+                                <option value="Hostel">
+                                    Hostel
+                                </option>
+
+                                <option value="Cleanliness">
+                                    Cleanliness
+                                </option>
+
+                                <option value="Transport">
+                                    Transport
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="complaint-form-group">
+
+                            <label for="complaintLocation">
+                                Location
+                            </label>
+
+                            <input
+                                type="text"
+                                id="complaintLocation"
+                                placeholder="e.g. ICT Building"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Subject -->
+
+                    <div class="complaint-form-group">
+
+                        <label for="complaintSubject">
+                            Complaint Subject
+                        </label>
+
+                        <input
+                            type="text"
+                            id="complaintSubject"
+                            placeholder="Enter a short title"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Description -->
+
+                    <div class="complaint-form-group">
+
+                        <label for="complaintDescription">
+                            Description
+                        </label>
+
+                        <textarea
+                            id="complaintDescription"
+                            placeholder="Describe the problem in detail..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- Priority -->
+
+                    <div class="complaint-form-group">
+
+                        <label>
+                            Priority
+                        </label>
+
+                        <div class="priority-box">
+
+                            <div class="priority-option">
+
+                                <input
+                                    type="radio"
+                                    name="priority"
+                                    id="lowPriority"
+                                    value="Low"
+                                    checked
+                                >
+
+                                <label for="lowPriority">
+                                    Low
+                                </label>
+
+                            </div>
+
+
+                            <div class="priority-option">
+
+                                <input
+                                    type="radio"
+                                    name="priority"
+                                    id="mediumPriority"
+                                    value="Medium"
+                                >
+
+                                <label for="mediumPriority">
+                                    Medium
+                                </label>
+
+                            </div>
+
+
+                            <div class="priority-option">
+
+                                <input
+                                    type="radio"
+                                    name="priority"
+                                    id="highPriority"
+                                    value="High"
+                                >
+
+                                <label for="highPriority">
+                                    High
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="complaintMessage"
+                        class="complaint-message complaint-success"
+                    ></div>
+
+
+                    <button
+                        type="submit"
+                        class="complaint-submit"
+                    >
+                        Submit Complaint
+                    </button>
+
+                </form>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/auth.js"></script>
+
+</body>
+
+</html>
